@@ -1,0 +1,3 @@
+C:/Users/siemb/CLionProjects/ai_touches_spikes/cmake-build-debug/CMakeFiles/ai_touches_spikes.dir
+C:/Users/siemb/CLionProjects/ai_touches_spikes/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/siemb/CLionProjects/ai_touches_spikes/cmake-build-debug/CMakeFiles/rebuild_cache.dir

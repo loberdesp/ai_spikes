@@ -1,0 +1,6 @@
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\siemb\CLionProjects\ai_touches_spikes -B C:\Users\siemb\CLionProjects\ai_touches_spikes\cmake-build-debug
+-- Found SDL2TTF: mingw32;-mwindows;C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a;C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  
+-- SDL2 found!
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/siemb/CLionProjects/ai_touches_spikes/cmake-build-debug
