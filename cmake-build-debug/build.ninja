@@ -70,6 +70,20 @@ build CMakeFiles/ai_touches_spikes.dir/cpp/display.cpp.obj: CXX_COMPILER__ai_tou
   OBJECT_DIR = CMakeFiles\ai_touches_spikes.dir
   OBJECT_FILE_DIR = CMakeFiles\ai_touches_spikes.dir\cpp
 
+build CMakeFiles/ai_touches_spikes.dir/cpp/net.cpp.obj: CXX_COMPILER__ai_touches_spikes_unscanned_Debug C$:/Users/siemb/CLionProjects/ai_touches_spikes/cpp/net.cpp || cmake_object_order_depends_target_ai_touches_spikes
+  DEP_FILE = CMakeFiles\ai_touches_spikes.dir\cpp\net.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/SDL2-2.30.2/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\ai_touches_spikes.dir
+  OBJECT_FILE_DIR = CMakeFiles\ai_touches_spikes.dir\cpp
+
+build CMakeFiles/ai_touches_spikes.dir/cpp/neuron.cpp.obj: CXX_COMPILER__ai_touches_spikes_unscanned_Debug C$:/Users/siemb/CLionProjects/ai_touches_spikes/cpp/neuron.cpp || cmake_object_order_depends_target_ai_touches_spikes
+  DEP_FILE = CMakeFiles\ai_touches_spikes.dir\cpp\neuron.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/SDL2-2.30.2/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\ai_touches_spikes.dir
+  OBJECT_FILE_DIR = CMakeFiles\ai_touches_spikes.dir\cpp
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ai_touches_spikes
@@ -78,7 +92,7 @@ build CMakeFiles/ai_touches_spikes.dir/cpp/display.cpp.obj: CXX_COMPILER__ai_tou
 #############################################
 # Link the executable ai_touches_spikes.exe
 
-build ai_touches_spikes.exe: CXX_EXECUTABLE_LINKER__ai_touches_spikes_Debug CMakeFiles/ai_touches_spikes.dir/main.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/Game.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/display.cpp.obj | C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a
+build ai_touches_spikes.exe: CXX_EXECUTABLE_LINKER__ai_touches_spikes_Debug CMakeFiles/ai_touches_spikes.dir/main.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/Game.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/display.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/net.cpp.obj CMakeFiles/ai_touches_spikes.dir/cpp/neuron.cpp.obj | C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a C$:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a
   FLAGS = -g
   LINK_LIBRARIES = -lmingw32  -mwindows  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  -lmingw32  -mwindows  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  -lwinmm  -limm32  -lsetupapi  -lversion  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2main.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2.dll.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  C:/SDL2-2.30.2/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  -lwinmm  -limm32  -lsetupapi  -lversion  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ai_touches_spikes.dir

@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iomanip>
 #include <algorithm>
+#include <bitset>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -26,7 +27,9 @@
 
 #define SPIKE_TXT_DIM HEIGHT/SPIKE_AMOUNT
 
-#define GAMEWIDTH 200
-#define GAMEHEIGHT 600
-
 #define G 2000
+
+#define LEARNING_RATE 0.1f
+#define CLIPPED_RATIO 0.9f
+#define LEARNING_RATE_AI 0.3f
+#define DISCOUNT_FACTOR 1

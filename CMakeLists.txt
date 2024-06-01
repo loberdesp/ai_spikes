@@ -25,6 +25,9 @@ add_executable(ai_touches_spikes main.cpp
         cpp/display.cpp
         headers/display.h
         headers/define.h
+        cpp/net.cpp
+        cpp/net.cpp
+        cpp/neuron.cpp
 )
 
 #THOSE 4 LINES TOOK ME 4 HOURS TO FIND BECAUSE PROGRAM WOULDN'T WORK WITHOUT THEM

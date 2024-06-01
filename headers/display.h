@@ -8,10 +8,11 @@
 #include <SDL_image.h>
 #include "../headers/define.h"
 #include "Game.h"
+#include "neuron.h"
+#include "net.h"
+
 
 class display {
-    SDL_Texture* birdTxt;
-    SDL_Texture* spikeTxt;
     SDL_Renderer& r;
     TTF_Font *gFont = nullptr;
 public:
@@ -21,6 +22,13 @@ public:
     void renderText(const std::string& text, int x, int y, bool isRed);
     void drawCandy(int x, int y);
     void drawScores(int s, int cs);
+
+
+
+
+    static int SDL_RenderDrawCircle(SDL_Renderer *renderer, int x, int y, int radius);
+    static int SDL_RenderFillCircle(SDL_Renderer *renderer, int x, int y, int radius);
+    void drawNet(const std::vector<std::vector<neuron>> &v, const std::vector<std::vector<std::vector<float>>>& w);
 };
 
 

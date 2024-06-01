@@ -10,10 +10,7 @@
 
 
 display::display(SDL_Renderer &rend) : r(rend) {
-    birdTxt = IMG_LoadTexture(&r,"../assets/bird.jpg");
-    spikeTxt = IMG_LoadTexture(&r,"../assets/img.png");
-
-    gFont = TTF_OpenFont("../assets/font.ttf", 60); // Change the path to your font file
+    gFont = TTF_OpenFont("../assets/font.ttf", 20); // Change the path to your font file
     if (gFont == nullptr) {
         printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
         exit(0);
@@ -95,4 +92,132 @@ void display::drawCandy(int x, int y) {
     cRect.h = CANDY_TXT_DIM;
     SDL_SetRenderDrawColor(&r, 255, 0, 0, 255);
     SDL_RenderFillRect(&r, &cRect);
+}
+
+
+
+
+
+
+int display::SDL_RenderDrawCircle(SDL_Renderer *renderer, int x, int y, int radius) {
+    int offsetx, offsety, d;
+    int status;
+
+    offsetx = 0;
+    offsety = radius;
+    d = radius -1;
+    status = 0;
+
+    while (offsety >= offsetx) {
+        status += SDL_RenderDrawPoint(renderer, x + offsetx, y + offsety);
+        status += SDL_RenderDrawPoint(renderer, x + offsety, y + offsetx);
+        status += SDL_RenderDrawPoint(renderer, x - offsetx, y + offsety);
+        status += SDL_RenderDrawPoint(renderer, x - offsety, y + offsetx);
+        status += SDL_RenderDrawPoint(renderer, x + offsetx, y - offsety);
+        status += SDL_RenderDrawPoint(renderer, x + offsety, y - offsetx);
+        status += SDL_RenderDrawPoint(renderer, x - offsetx, y - offsety);
+        status += SDL_RenderDrawPoint(renderer, x - offsety, y - offsetx);
+
+        if (status < 0) {
+            status = -1;
+            break;
+        }
+
+        if (d >= 2*offsetx) {
+            d -= 2*offsetx + 1;
+            offsetx +=1;
+        }
+        else if (d < 2 * (radius - offsety)) {
+            d += 2 * offsety - 1;
+            offsety -= 1;
+        }
+        else {
+            d += 2 * (offsety - offsetx - 1);
+            offsety -= 1;
+            offsetx += 1;
+        }
+    }
+
+    return status;
+}
+
+
+int display::SDL_RenderFillCircle(SDL_Renderer * renderer, int x, int y, int radius) {
+    int offsetx, offsety, d;
+    int status;
+
+    offsetx = 0;
+    offsety = radius;
+    d = radius -1;
+    status = 0;
+
+    while (offsety >= offsetx) {
+
+        status += SDL_RenderDrawLine(renderer, x - offsety, y + offsetx,
+                                     x + offsety, y + offsetx);
+        status += SDL_RenderDrawLine(renderer, x - offsetx, y + offsety,
+                                     x + offsetx, y + offsety);
+        status += SDL_RenderDrawLine(renderer, x - offsetx, y - offsety,
+                                     x + offsetx, y - offsety);
+        status += SDL_RenderDrawLine(renderer, x - offsety, y - offsetx,
+                                     x + offsety, y - offsetx);
+
+        if (status < 0) {
+            status = -1;
+            break;
+        }
+
+        if (d >= 2*offsetx) {
+            d -= 2*offsetx + 1;
+            offsetx +=1;
+        }
+        else if (d < 2 * (radius - offsety)) {
+            d += 2 * offsety - 1;
+            offsety -= 1;
+        }
+        else {
+            d += 2 * (offsety - offsetx - 1);
+            offsety -= 1;
+            offsetx += 1;
+        }
+    }
+
+    return status;
+}
+
+
+void display::drawNet(const std::vector<std::vector<neuron>>& v, const std::vector<std::vector<std::vector<float>>>& w) {
+    //draw connections between layers
+    unsigned int size = v.size();
+
+    for(int i=0;i<size-1;i++) {
+        for(int j=0;j<v[i].size();j++) {
+            for(int k=0;k<v[i+1].size();k++) {
+                if(w[i][j][k]>0) {
+                    SDL_SetRenderDrawColor(&r, 0, 255, 0, 255);
+                } else {
+                    SDL_SetRenderDrawColor(&r, 255, 0, 0, 255);
+                }
+                SDL_RenderDrawLine(&r, v[i][j].getX(), v[i][j].getY(), v[i+1][k].getX(), v[i+1][k].getY());
+                SDL_SetRenderDrawColor(&r, 255, 255, 255, 255);
+                int x = (v[i][j].getX()+v[i+1][k].getX())/2;
+                int y = (v[i][j].getY()+v[i+1][k].getY())/2;
+                std::ostringstream stream;
+                stream << std::fixed << std::setprecision(6) << w[i][j][k];
+                renderText(stream.str(), x, y, false);
+            }
+        }
+    }
+
+    SDL_SetRenderDrawColor(&r, 255, 255, 255, 255);
+
+    //draw neurons
+    for(const auto& x : v) {
+        for(auto y : x) {
+            SDL_RenderFillCircle(&r,y.getX(),y.getY(),20);
+            std::ostringstream stream;
+            stream << std::fixed << std::setprecision(6) << y.getValue();
+            renderText(stream.str(), y.getX(), y.getY(), true);
+        }
+    }
 }
